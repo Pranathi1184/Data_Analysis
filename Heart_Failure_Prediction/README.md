@@ -122,10 +122,3 @@ Data Cleaning → EDA → Model Training → Evaluation → Deployment
 
 It integrates machine learning with a web interface, providing a real-world healthcare solution that supports clinical decision-making through data-driven insights.
 
----
-
-## 👩‍💻 Author
-Your Name  
-📧 youremail@example.com  
-🔗 LinkedIn: your-link  
-💻 GitHub: your-github-link
