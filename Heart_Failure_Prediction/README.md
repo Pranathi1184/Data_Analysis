@@ -1,137 +1,131 @@
-❤️ Heart Failure Prediction
-📘 Overview
+# ❤️ Heart Failure Prediction
 
-This project predicts the risk of heart failure using a machine learning model trained on clinical patient data.
-It includes a Flask web application that allows users to input medical parameters and instantly receive a risk prediction.
-The aim is to assist healthcare professionals in identifying high-risk patients early for better diagnosis and treatment.
+This project focuses on predicting the risk of heart failure using machine learning and deploying it as a Flask web application. It demonstrates an end-to-end data science workflow — from data cleaning and model training to web-based deployment — built using real clinical data.
 
-🧠 Objective
+---
 
-To build a predictive model that estimates the likelihood of heart failure based on key medical attributes such as:
+## 🧠 Overview
+The goal of this project is to help healthcare professionals identify patients at risk of heart failure based on various medical parameters. Using the UCI Heart Failure Clinical Records dataset, the project applies advanced machine learning algorithms to generate accurate and interpretable predictions. The resulting model is integrated into a user-friendly web interface where users can input patient details and instantly receive a prediction.
 
-Age
+---
 
-Ejection Fraction
+## 🧰 Tools & Technologies
+- Python (Pandas, NumPy, Scikit-learn, XGBoost)
+- Visualization: Matplotlib, Seaborn
+- Model Deployment: Flask
+- Frontend: HTML, CSS
+- Model Storage: Pickle (.pkl)
 
-Serum Creatinine
+---
 
-High Blood Pressure
+## 🎯 Objectives
+- Clean and preprocess clinical heart failure data
+- Perform exploratory data analysis (EDA) and identify key predictors
+- Build and tune an XGBoost classification model
+- Evaluate model performance using metrics such as Accuracy and ROC-AUC
+- Deploy the trained model as an interactive Flask web app
 
-Follow-up Time
+---
 
-The final model was deployed as a simple, interactive Flask web app.
-
-🧰 Tools & Technologies
-
-Programming: Python (Pandas, NumPy, Scikit-learn, XGBoost)
-
-Visualization: Matplotlib, Seaborn
-
-Deployment: Flask
-
-Frontend: HTML, CSS
-
-Model Storage: Pickle
-
-📂 Project Structure
-
-📁 Heart_Failure_Prediction/
+## 📂 Project Structure
+Heart_Failure_Prediction/
 │
-├── heart failure prediction.ipynb → Model training & evaluation
-├── heart_failure_clinical_records_dataset.csv → Dataset used
-├── app.py → Flask backend app
-├── index.html → Frontend web interface
-├── trained_model.pkl → Trained XGBoost model
-├── scaler.pkl → Scaler for preprocessing
-├── default_feature_values.pkl → Default values for input fields
+├── heart failure prediction.ipynb → Model training & evaluation  
+├── heart_failure_clinical_records_dataset.csv → Dataset used  
+├── app.py → Flask backend application  
+├── index.html → Frontend web interface  
+├── trained_model.pkl → Trained XGBoost model  
+├── scaler.pkl → Data scaler for preprocessing  
+├── default_feature_values.pkl → Default feature values for input fields  
 └── README.md → Project documentation
 
-📊 Dataset
+---
 
-Source: UCI Heart Failure Clinical Records Dataset
+## 📊 Dataset
+Source: UCI Heart Failure Clinical Records Dataset  
+Records: 299 patients  
+Features: 12 clinical attributes  
+Target Variable: DEATH_EVENT (1 = Death, 0 = Survived)
 
-Records: 299 patients
-Features: 12 clinical variables
-Target: DEATH_EVENT (1 = death, 0 = survived)
+Key Features:
+- Age — Age of the patient  
+- Anaemia — 1 = Yes, 0 = No  
+- Creatinine Phosphokinase — Level of CPK enzyme in blood  
+- Ejection Fraction — % of blood leaving the heart per contraction  
+- Serum Creatinine — Level of creatinine in blood  
+- Serum Sodium — Blood sodium level  
+- High Blood Pressure — 1 = Yes, 0 = No  
+- Time — Follow-up period (in days)  
+- DEATH_EVENT — Target variable (1 = death, 0 = survived)
 
-Feature Examples:
+---
 
-Feature	Description
-Age	Age of the patient
-Anaemia	1 = Yes, 0 = No
-Creatinine Phosphokinase	Level of CPK enzyme in blood
-Ejection Fraction	Percentage of blood leaving the heart per contraction
-Serum Creatinine	Level of creatinine in blood
-Serum Sodium	Blood sodium level
-Time	Follow-up period (in days)
-DEATH_EVENT	1 = death during follow-up, 0 = survived
-⚙️ How to Run the Project
-1️⃣ Install Dependencies
+## ⚙️ How to Run the Project
 
-Make sure Python is installed, then install all required libraries:
-pip install flask numpy pandas scikit-learn xgboost matplotlib seaborn
+1️⃣ Install Dependencies  
+Make sure Python is installed, then run this command:  
+pip install flask numpy pandas scikit-learn xgboost matplotlib seaborn  
 
-2️⃣ Run the Flask App
+2️⃣ Run the Flask Application  
+Execute the following in your terminal:  
+python app.py  
 
-In your terminal, execute:
-python app.py
+3️⃣ Open in Browser  
+Once running, open your browser and go to:  
+http://127.0.0.1:5000/  
 
-3️⃣ Open in Browser
+4️⃣ Use the Application  
+- Input patient details (age, ejection fraction, serum creatinine, etc.)  
+- Click "Predict Heart Failure"  
+- The app returns High Risk or Low Risk, along with the probability.
 
-Visit:
-http://127.0.0.1:5000/
+---
 
-4️⃣ Use the App
+## 📈 Model Performance
+Algorithm: XGBoost Classifier  
+Accuracy: ~85%  
+ROC-AUC: ~0.90  
+Key Predictors: Ejection Fraction, Serum Creatinine, Age  
 
-Enter patient details (age, ejection fraction, serum creatinine, etc.)
+The model was validated using cross-validation and tuned for maximum accuracy without overfitting.
 
-Click Predict Heart Failure
+---
 
-The app will return High Risk or Low Risk with probability percentage.
+## 🧩 Web Application Features
+- Clean and intuitive HTML-based input form  
+- Real-time prediction on form submission  
+- Color-coded output:  
+  - 🟥 High Risk — High probability of heart failure  
+  - 🟩 Low Risk — Low probability of heart failure  
+- Uses trained_model.pkl and scaler.pkl for predictions
 
-📈 Model Performance
-Metric	Value
-Algorithm	XGBoost Classifier
-Accuracy	~85%
-ROC-AUC	~0.90
-Key Features	Ejection Fraction, Serum Creatinine, Age
+---
 
-The model was trained and tuned using cross-validation to achieve a balance between accuracy and interpretability.
+## 💡 Key Insights
+- Ejection Fraction and Serum Creatinine are strong indicators of heart failure risk.  
+- Lower ejection fraction (<40%) significantly increases the chance of failure.  
+- Early detection can support preventive healthcare measures and improve outcomes.
 
-🧩 Web Application
+---
 
-The web app (app.py + index.html) provides:
+## 🚀 Future Enhancements
+- Add SHAP/LIME explainability for feature importance visualization  
+- Deploy on Heroku, Render, or AWS for public access  
+- Add database integration for patient records (PostgreSQL/SQLite)  
+- Improve web UI using Bootstrap or React  
 
-Simple input form for medical parameters
+---
 
-Instant predictions on form submission
+## 🏁 Summary
+This project demonstrates a complete data science lifecycle:  
+Data Cleaning → EDA → Model Training → Evaluation → Deployment  
 
-Color-coded risk output (Red = High Risk, Green = Low Risk)
+It integrates machine learning with a web interface, providing a real-world healthcare solution that supports clinical decision-making through data-driven insights.
 
-Uses trained_model.pkl and scaler.pkl for predictions
+---
 
-💡 Key Insights
-
-Ejection Fraction and Serum Creatinine are the strongest predictors of heart failure.
-
-Patients with low ejection fraction (<40%) have significantly higher risk.
-
-Model predictions can support doctors in risk-based patient prioritization.
-
-🚀 Future Enhancements
-
-Add SHAP/LIME-based model explainability for interpretability.
-
-Deploy the app on Heroku / AWS for global access.
-
-Integrate a database backend for patient record storage.
-
-Improve the web UI with Bootstrap or React for better styling.
-
-🏁 Summary
-
-This project demonstrates an end-to-end data science workflow:
-
-Data Cleaning → Feature Engineering → Model Training → Deployment
-
-It integrates machine learning and Flask to build a real-time healthcare prediction tool that could support early diagnosis and clinical decision-making.
+## 👩‍💻 Author
+Your Name  
+📧 youremail@example.com  
+🔗 LinkedIn: your-link  
+💻 GitHub: your-github-link
